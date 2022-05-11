@@ -1,0 +1,46 @@
+{
+  "name": "fmriprep_refit",
+  "label": "BSL: Reformat fMRIprep outputs",
+  "description": "Script to be used for reformatting the outputs of fMRIprep v.21.0.1 and later to fit the directory structure needed for BSLPP to run smoothly. The inputs are the resulting files generated in pre-processing(FMRIprep)",
+  "version": "0.0.1",
+  "custom": {
+    "gear-builder": {
+      "category": "analysis",
+      "image": "fa57453/revise_fmriprep_dir:0.0.1"
+    }
+  },
+  "inputs": {
+    "fMRIprep_zip": {
+      "description": "zipped fMRIprep output",
+      "base": "file",
+      "type": {
+        "enum": [
+          "archive"
+        ]
+      }
+    }
+  },
+  
+  "environment": {
+    "XAPPLRESDIR": "/opt/mcr/v93/x11/app-defaults",
+    "LD_LIBRARY_PATH": "/opt/mcr/v93/runtime/glnxa64:/opt/mcr/v93/bin/glnxa64:/opt/mcr/v93/sys/os/glnxa64:/opt/mcr/v93/extern/bin/glnxa64",
+    "FSLDIR": "/usr/local/fsl",
+    "FLYWHEEL": "/flywheel/v0",
+    "TERM": "xterm",
+    "SHLVL": "1",
+    "PATH": "/usr/local/fsl/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/abin",
+    "FSLOUTPUTTYPE": "NIFTI_GZ",
+    "FSLMULTIFILEQUIT": "TRUE",
+    "LESSOPEN": "| /usr/bin/lesspipe %s",
+    "_": "/usr/bin/env",
+    "HOME": "/root",
+    "DEBIAN_FRONTEND": "noninteractive"
+
+  },
+  "author": "Flywheel_AAzeez",
+  "maintainer": "Flywheel <support@flywheel.io> AAzeez<aazeez@stanford.edu>",
+  "license": "Other",
+  "source": "",
+  "url": "https://github.com/ageoly-git/fmriprep_refit",
+  "command": "/flywheel/v0/run 2>&1 | tee /flywheel/v0/output/log.txt"
+}
