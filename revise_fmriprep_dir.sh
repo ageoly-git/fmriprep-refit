@@ -10,11 +10,11 @@ OUTPUT_DIR=$2
 ##############################################################################
 # Reformat the fmriprep directory to match BSLPP and then zip to output directory
 echo "mkdir ${WORK_DIR}/fmriprep"
-mkdir ${WORK_DIR}/fmriprep
-echo "mv ${WORK_DIR}/*/sub-* ${WORK_DIR}/fmriprep"
-mv ${WORK_DIR}/*/sub-* ${WORK_DIR}/fmriprep
+mkdir ${WORK_DIR}/subfolder
+mkdir ${WORK_DIR}/subfolder/fmriprep
+echo "mv ${WORK_DIR}/*/sub-* ${WORK_DIR}/subfolder/fmriprep"
+mv ${WORK_DIR}/*/sub-* ${WORK_DIR}/subfolder/fmriprep
 echo "ls -l $WORK_DIR"
 ls -l $WORK_DIR
-echo "zip -r $OUTPUT_DIR/fmriprep_reformatted_21.0.1.zip  fmriprep"
-zip -r $OUTPUT_DIR/fmriprep_reformatted_21.0.1.zip  fmriprep
-
+echo "zip -r $OUTPUT_DIR/fmriprep_reformatted_21.0.1.zip  subfolder"
+zip -r $OUTPUT_DIR/fmriprep_reformatted_21.0.1.zip  subfolder

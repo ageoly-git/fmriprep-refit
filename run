@@ -11,7 +11,7 @@
 # Configure paths
 
 FLYWHEEL_BASE=/flywheel/v0
-OUTPUT_DIR=/flywheel/v0/output
+OUT_DIR=/flywheel/v0/output
 WORK_DIR=/flywheel/v0/work
 CONFIG_FILE=$FLYWHEEL_BASE/config.json
 MANIFEST_FILE=$FLYWHEEL_BASE/manifest.json
@@ -69,7 +69,7 @@ unzip $WORK_ZIP -d $WORK_DIR
 rm -f ${WORK_ZIP}
 
 cd $WORK_DIR
- 
+
 ##############################################################################
 echo "/flywheel/v0/revise_fmriprep_dir.sh ${WORK_DIR} ${OUT_DIR}"
   /flywheel/v0/revise_fmriprep_dir.sh ${WORK_DIR} ${OUT_DIR}
