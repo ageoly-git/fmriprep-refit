@@ -1,12 +1,17 @@
 {
-  "name": "fmriprep_refit",
+  "name": "fmriprep-refit",
   "label": "BSL: Reformat fMRIprep outputs",
   "description": "Script to be used for reformatting the outputs of fMRIprep v.21.0.1 and later to fit the directory structure needed for BSLPP to run smoothly. The inputs are the resulting files generated in pre-processing(FMRIprep)",
+  "flywheel": "0",
   "version": "0.0.1",
   "custom": {
+    "docker-image": "fa57453/revise-fmriprep-dir:0.0.1",
+    "flywheel": {
+      "suite": "BSL"
+    },
     "gear-builder": {
       "category": "analysis",
-      "image": "fa57453/revise_fmriprep_dir:0.0.1"
+      "image": "fa57453/revise-fmriprep-dir:0.0.1"
     }
   },
   "inputs": {
@@ -20,7 +25,13 @@
       }
     }
   },
-  
+  "config": {
+    "zips": {
+      "default": 1,
+      "description": "Number of zips to refit, dummy config",
+      "type": "number"
+      }
+    },
   "environment": {
     "XAPPLRESDIR": "/opt/mcr/v93/x11/app-defaults",
     "LD_LIBRARY_PATH": "/opt/mcr/v93/runtime/glnxa64:/opt/mcr/v93/bin/glnxa64:/opt/mcr/v93/sys/os/glnxa64:/opt/mcr/v93/extern/bin/glnxa64",
@@ -41,6 +52,6 @@
   "maintainer": "Flywheel <support@flywheel.io> AAzeez<aazeez@stanford.edu>",
   "license": "Other",
   "source": "",
-  "url": "https://github.com/ageoly-git/fmriprep_refit",
+  "url": "https://github.com/ageoly-git/fmriprep-refit",
   "command": "/flywheel/v0/run 2>&1 | tee /flywheel/v0/output/log.txt"
 }
